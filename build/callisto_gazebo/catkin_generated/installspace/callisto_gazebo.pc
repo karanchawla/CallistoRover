@@ -1,0 +1,8 @@
+prefix=/home/karan/callisto_ws/install
+
+Name: callisto_gazebo
+Description: Description of callisto_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callisto_ws/install/lib 
+Requires: 

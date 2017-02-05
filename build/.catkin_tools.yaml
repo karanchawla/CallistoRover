@@ -1,0 +1,6 @@
+devel_space: /home/karan/callisto_ws/devel
+install: false
+install_space: /home/karan/callisto_ws/install
+profile: default
+source_space: /home/karan/callisto_ws/src
+workspace: /home/karan/callisto_ws

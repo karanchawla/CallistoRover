@@ -1,0 +1,1 @@
+/home/karan/callisto_ws/devel/.private/callisto_gazebo/lib/pkgconfig/callisto_gazebo.pc

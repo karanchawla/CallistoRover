@@ -1,0 +1,8 @@
+prefix=/home/karan/callisto_ws/install
+
+Name: callisto_control
+Description: Description of callisto_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callisto_ws/install/lib 
+Requires: 

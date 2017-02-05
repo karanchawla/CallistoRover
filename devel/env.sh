@@ -1,0 +1,1 @@
+/home/karan/callisto_ws/devel/.private/catkin_tools_prebuild/env.sh
