@@ -4,9 +4,9 @@
 
 
 
-  <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo" />
-  <xacro:include filename="$(find mybot_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find mybot_description)/urdf/macros.xacro" />
+  <xacro:include filename="$(find callisto_description)/urdf/callisto.gazebo" />
+  <xacro:include filename="$(find callisto_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find callisto_description)/urdf/macros.xacro" />
 
 
   <link name='chassis'>
