@@ -7,6 +7,8 @@
       <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
+      <frontleftJoint>fleft_wheel_hinge</frontleftJoint>
+      <frontrightJoint>fright_wheel_hinge</frontrightJoint>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
       <wheelSeparation>0.4</wheelSeparation>
