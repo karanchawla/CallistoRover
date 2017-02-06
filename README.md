@@ -30,7 +30,7 @@ Directory Structure:
        
        
 Working of the LIDAR:
-[ ](/images/laser.png)
+![](/images/laser.png)
 
 
 Notes: 
