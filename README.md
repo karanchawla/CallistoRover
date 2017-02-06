@@ -27,3 +27,9 @@ Directory Structure:
          - callisto.world
        - CMakeLists.txt
        - package.xml
+
+Notes: 
+ - 1. If Hokuyo laser shows weird range and behavior, the problem is probably because of the graphic drivers and add this line before launching gazebo simulation - you may add it to your ~/.bashrc file. 
+ ```
+ export LIBGL_ALWAYS_SOFTWARE=1
+ ```
