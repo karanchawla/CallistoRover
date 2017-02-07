@@ -32,7 +32,19 @@ Directory Structure:
 Working of the LIDAR:
 ![](/images/laser.png)
 
-
+To Do:
+- [x] Get the connections for Sabertooth working
+- [x] Simulate the robot in Gazebo
+- [x] Add differential drive controller and, camera sensor.
+- [ ] Interface mbed with ROS using Serial Comms 
+- [ ] Open Loop Control Node for mbed 
+- [ ] Implement HIL open loop control node
+- [ ] Use encoder data for PID controller - feedback!
+- [ ] Figure out VICON stuff 
+- [ ] Interface VICON with rover 
+- [ ] Trajectory Tracking 
+Okay this is getting intimidating - rest of it later!
+ 
 Notes: 
  - 1. If Hokuyo laser shows weird range and behavior, the problem is probably because of the graphic drivers and add this line before launching gazebo simulation - you may add it to your ~/.bashrc file. 
  ```
