@@ -36,8 +36,8 @@ To Do:
 - [x] Get the connections for Sabertooth working
 - [x] Simulate the robot in Gazebo
 - [x] Add differential drive controller and, camera sensor.
-- [ ] Interface mbed with ROS using Serial Comms 
-- [ ] Open Loop Control Node for mbed 
+- [x] Interface mbed with ROS using Serial Comms 
+- [x] Open Loop Control Node for mbed 
 - [ ] Implement HIL open loop control node
 - [ ] Use encoder data for PID controller - feedback!
 - [ ] Figure out VICON stuff 
