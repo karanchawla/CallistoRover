@@ -27,7 +27,18 @@ Directory Structure:
          - callisto.world
        - CMakeLists.txt
        - package.xml
-       
+     - diffdrive_controller
+       - src
+         - diffdrive_controller.py
+       - CMakeLists.txt
+       - package.xml
+     - nav_behaviours
+       - launch 
+         - nav_behaviours.launch
+       - src
+         - nav_timed.py
+       - CMakeLists.txt
+       - package.xml
        
 Working of the LIDAR:
 ![](/images/laser.png)
@@ -47,6 +58,7 @@ Okay this is getting intimidating - rest of it later!
  
 Notes: 
  - 1. If Hokuyo laser shows weird range and behavior, the problem is probably because of the graphic drivers and add this line before launching gazebo simulation - you may add it to your ~/.bashrc file. 
+ 
  ```
  export LIBGL_ALWAYS_SOFTWARE=1
  ```
