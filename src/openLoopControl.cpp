@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ros.h>
 #include <std_msgs/Float32.h>
+#include <std_msgs/Int32.h>
 #include "Sabertooth.h"
 #include <cmath>
 
@@ -50,16 +51,6 @@ int motor_cmd_min = -127;
 float motor_max_angular_vel = 4233.334;
 float motor_min_angular_vel = -666.667;
 
-/*
-ros::Publisher lwheel_angular_vel_target_pub("lwheel_angular_vel_target", &float_msg);
-ros::Publisher rwheel_angular_vel_target_pub("rwheel_angular_vel_target", &float_msg);
-
-ros::Publisher lwheel_angular_vel_control_pub("lwheel_angular_vel_control", &float_msg);
-ros::Publisher rwheel_angular_vel_control_pub("rwheel_angular_vel_control", &float_msg);
-
-ros::Publisher lwheel_angular_vel_motor_pub("lwheel_angular_vel_motor", &int_msg);
-ros::Publisher rwheel_angular_vel_motor_pub("rwheel_angular_vel_motor", &int_msg);
-*/
 
 //Subscribing to left wheel and right wheel velocities
 void lwheel_tangent_vel_target_callback( const std_msgs::Float32& float_msg)
@@ -151,6 +142,25 @@ void motorcmd_2_robot( char wheel, int motor_command, Sabertooth &Sb)
 }
 
 ros::NodeHandle nh;
+std_msgs::Float32 msgL;
+std_msgs::Float32 msgR;
+
+ros::Publisher lwheel_angular_vel_target_pub("lwheel_angular_vel_target", &msgL);
+ros::Publisher rwheel_angular_vel_target_pub("rwheel_angular_vel_target", &msgR);
+
+std_msgs::Float32 lwheel_angular_vel_control_msg;
+std_msgs::Float32 rwheel_angular_vel_control_msg;
+
+
+ros::Publisher lwheel_angular_vel_control_pub("lwheel_angular_vel_control", &lwheel_angular_vel_control_msg);
+ros::Publisher rwheel_angular_vel_control_pub("rwheel_angular_vel_control", &rwheel_angular_vel_control_msg);
+
+std_msgs::Int32 lwheel_angular_vel_motor_msg;
+std_msgs::Int32 rwheel_angular_vel_motor_msg;
+
+ros::Publisher lwheel_angular_vel_motor_pub("lwheel_angular_vel_motor", &lwheel_angular_vel_motor_msg);
+ros::Publisher rwheel_angular_vel_motor_pub("rwheel_angular_vel_motor", &rwheel_angular_vel_motor_msg);
+
 
 int main()
 {
@@ -168,24 +178,32 @@ int main()
         wait_ms(1);
 
         rwheel_angular_vel_target = tangentvel_2_angularvel(rwheel_tangent_vel_target);
-        //rwheel_angular_vel_target_pub.publish(rwheel_angular_vel_target);
+        msgR.data = rwheel_tangent_vel_target;
+        rwheel_angular_vel_target_pub.publish( &msgR );
 
-        //rwheel_angular_vel_control_pub.publish(rwheel_angular_vel_target);
+        rwheel_angular_vel_control_msg.data = rwheel_angular_vel_target;
+        rwheel_angular_vel_control_pub.publish( &rwheel_angular_vel_control_msg );
+
         int rwheel_motor_cmd = angularvel_2_motorcmd(rwheel_angular_vel_target);
-        //rwheel_angular_vel_motor_pub.publish(rwheel_motor_cmd); 
+        rwheel_angular_vel_motor_msg.data =rwheel_motor_cmd;        rwheel_angular_vel_motor_pub.publish(&rwheel_angular_vel_motor_msg); 
 
         motorcmd_2_robot('r', rwheel_motor_cmd, Sb);
 
         lwheel_angular_vel_target = tangentvel_2_angularvel(lwheel_tangent_vel_target);
-        //lwheel_angular_vel_target_pub.publish(lwheel_angular_vel_target);
+        msgL.data = lwheel_tangent_vel_target;
+        lwheel_angular_vel_target_pub.publish( &msgL );
 
-        //lwheel_angular_vel_control_pub.publish(lwheel_angular_vel_target);
+        lwheel_angular_vel_control_msg.data = lwheel_angular_vel_target;
+        lwheel_angular_vel_control_pub.publish( &lwheel_angular_vel_control_msg );
 
         //Compute motor command
         int lwheel_motor_cmd = angularvel_2_motorcmd(lwheel_angular_vel_target);
-        //lwheel_angular_vel_motor_pub.publish(lwheel_motor_cmd); 
+
+        lwheel_angular_vel_motor_msg.data = lwheel_motor_cmd;
+        lwheel_angular_vel_motor_pub.publish(&lwheel_angular_vel_motor_msg); 
 
         motorcmd_2_robot('l',lwheel_motor_cmd, Sb);
+        
         wait_ms(500);
     }
 
