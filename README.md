@@ -65,7 +65,7 @@ Notes:
  
 - 2. Converting from ogv to mp4
 
-'''
- ffmpeg -i out.ogv        -c:v libx264 -preset veryslow -crf 22        -c:a libmp3lame -qscale:a 2 -ac 2 -ar 44100 \ navigation.mp4
+```
+ffmpeg -i out.ogv        -c:v libx264 -preset veryslow -crf 22        -c:a libmp3lame -qscale:a 2 -ac 2 -ar 44100 \ navigation.mp4
 
-'''
+```
