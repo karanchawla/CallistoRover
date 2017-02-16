@@ -50,7 +50,7 @@ To Do:
 - [x] Interface mbed with ROS using Serial Comms 
 - [x] Open Loop Control Node for mbed 
 - [ ] Implement HIL open loop control node
-- [ ] Use encoder data for PID controller - feedback!
+- [x] Use encoder data for PID controller - feedback!
 - [ ] Figure out VICON stuff 
 - [ ] Interface VICON with rover 
 - [ ] Trajectory Tracking 
@@ -62,3 +62,10 @@ Notes:
  ```
  export LIBGL_ALWAYS_SOFTWARE=1
  ```
+ 
+- 2. Converting from ogv to mp4
+
+```
+ffmpeg -i out.ogv        -c:v libx264 -preset veryslow -crf 22        -c:a libmp3lame -qscale:a 2 -ac 2 -ar 44100 \ navigation.mp4
+
+```
