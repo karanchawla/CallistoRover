@@ -50,11 +50,13 @@ Videos:
 
 <a href="https://www.youtube.com/watch?v=-S2_TLgltj8" target="_blank"><img src="https://i.ytimg.com/vi/-S2_TLgltj8/hqdefault.jpg?custom=true&w=336&h=188&stc=true&jpg444=true&jpgq=90&sp=68&sat=0.3&sigh=jG1sKAO51Nnar-ijQ_CPH6xkco0" alt="Autonomous Navigation with AMCL" width="240" height="180" border="10" /></a>
 
+Trajectory Tracking:
 
-<a href="https://goo.gl/photos/nmXYycaKVH1yMC3G9" target="_blank"><img src="https://lh3.googleusercontent.com/LTIWOhX_Uc8lWjo0i4cZI0cqgiaAOq_9a7IJA8IKMLfwu8WBUfPZ3q7BbmeAlETHdsNsjyJSfw8_5aupvpemRNS2hOoiB5ejP1j8xIrQZiFH1xLjqF39teBuP9KLyOQk2xzSDP5eRxrxFP14n7w_aHa9X11ty8CXGvkylqNhpho9ltcAuOUAPDnTCalrStW9yyi08DpG3F5MXiaJ0dTwMJMVDUCzb0qJC9V0V-3E_DAblD3syx-rnxvPf-BgAW8PyGNR71rkNmJSBpCPjOr23RmcYgueybx5Qa_af31Frx8M683foQDHeNOWw1GTJlynsw9zuVFf-LXdYvNAkeEOZQkuVROOa5RXga98fI81Ac9b1nCVCnhTtFbNbw8ijjLTUowz3O5tazoVLShzjk5FwbT45Kh0__SXjpZEA6F4y1-aJDYpTd_fyxKHdDSAheEGMstbNs8v5mxL6CyAJSlWvWil34kxfF2O1-JffLwBvDobRHQXD9G_jreS1V4pFn3sbElk5tCblkrN3r7GjmHqo8sZb1IYfvMgYdyWECR3YM1TSiUA2JIcuVf5AwA_roveQthg3Zt_jDVlsK6CJ0ccDqzk9_eom3r6CIolgYVKAdnQwZgU6YD2Pw=w1713-h963-no" alt="Trajectory Tracking" width="240" height="180" border="10" /></a>
+
+<a href="https://goo.gl/photos/nmXYycaKVH1yMC3G9" target="_blank"><img src="https://lh3.googleusercontent.com/Md2ItKCGFM3thwBDWw1kLDWzb02WY1kGSmMwPuIQLtfsPQeGONjMYi8IMrfnm0Xdx9O_I0naRjvGrR--f5X288j9pedggfpDzIhGC7akEyOEAuUbbn1w-ESfpemZ1XJ8MeJc-fauauuaYQpdM7HbPznjSdZ602-yZ7o0lpRNs1s4Z_m76f0GpSSvI2qdSdq22DjEA0HiCqJVDID1BMlqfaLXb6stywdBGuwcbj2fBG95jdbrNJkrCNu_o_fqPwZHZ9Re4zAgCsc_AbaBvszcYjT9HQgKa38x3rZmunQlb8QG5_EvLKEz6aRyRtn_i-lWY07J4tPO8Tshav8qK1D2FBasqWEoHso8TR4So9uGjgfLJZeIKjO-oMnw91AgiD2qRKApaLLsz6ZVn_5DUveeQRkZTmKE4SZOzoWX2JUiMCDFUQotZ8BcxUKFMqeW4TiTjurV7-vHVTv_ihryKMfyDPCCVAdrLJrRsAT5p927GyDif4IlXD4RMIlCck7bOa-_c_g_h9jYtJmFrcs20eN-pYUs40HCJi7W9j592TTbP8cyNV86Ikj8g43KCGHt6z0Z702ojPK-v_zvXn0TSFc4r_0RSKHT9fG0F3x4YI4SLqsiXDM3_z0T5A=w1713-h963-k-no" alt="Trajectory Tracking" width="240" height="180" border="10" /></a>
 
  
-![]()
+
 To Do:
 - [x] Get the connections for Sabertooth working
 - [x] Simulate the robot in Gazebo
