@@ -43,6 +43,11 @@ Directory Structure:
 Working of the LIDAR:
 ![](/images/laser.png)
 
+Teleoperation and Mapping:
+![](https://www.youtube.com/watch?v=vewtGyf9uSo&t=2s)
+
+Autonomous Navigation with AMCL: 
+![](https://www.youtube.com/watch?v=-S2_TLgltj8)
 To Do:
 - [x] Get the connections for Sabertooth working
 - [x] Simulate the robot in Gazebo
