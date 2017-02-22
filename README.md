@@ -43,10 +43,15 @@ Directory Structure:
 Working of the LIDAR:
 ![](/images/laser.png)
 
+Videos:
+
 <a href="https://www.youtube.com/watch?v=vewtGyf9uSo&t=2s" target="_blank"><img src="https://i.ytimg.com/vi/vewtGyf9uSo/hqdefault.jpg?custom=true&w=336&h=188&stc=true&jpg444=true&jpgq=90&sp=68&sat=0.3&sigh=OgGL06-jMYgpFNx8oOrUetsa3hc" alt="Teleoperation and Mapping" width="240" height="180" border="10" /></a>
 
 
 <a href="https://www.youtube.com/watch?v=-S2_TLgltj8" target="_blank"><img src="https://i.ytimg.com/vi/-S2_TLgltj8/hqdefault.jpg?custom=true&w=336&h=188&stc=true&jpg444=true&jpgq=90&sp=68&sat=0.3&sigh=jG1sKAO51Nnar-ijQ_CPH6xkco0" alt="Autonomous Navigation with AMCL" width="240" height="180" border="10" /></a>
+
+
+<a href="https://goo.gl/photos/nmXYycaKVH1yMC3G9" target="_blank"><img src="https://lh3.googleusercontent.com/LTIWOhX_Uc8lWjo0i4cZI0cqgiaAOq_9a7IJA8IKMLfwu8WBUfPZ3q7BbmeAlETHdsNsjyJSfw8_5aupvpemRNS2hOoiB5ejP1j8xIrQZiFH1xLjqF39teBuP9KLyOQk2xzSDP5eRxrxFP14n7w_aHa9X11ty8CXGvkylqNhpho9ltcAuOUAPDnTCalrStW9yyi08DpG3F5MXiaJ0dTwMJMVDUCzb0qJC9V0V-3E_DAblD3syx-rnxvPf-BgAW8PyGNR71rkNmJSBpCPjOr23RmcYgueybx5Qa_af31Frx8M683foQDHeNOWw1GTJlynsw9zuVFf-LXdYvNAkeEOZQkuVROOa5RXga98fI81Ac9b1nCVCnhTtFbNbw8ijjLTUowz3O5tazoVLShzjk5FwbT45Kh0__SXjpZEA6F4y1-aJDYpTd_fyxKHdDSAheEGMstbNs8v5mxL6CyAJSlWvWil34kxfF2O1-JffLwBvDobRHQXD9G_jreS1V4pFn3sbElk5tCblkrN3r7GjmHqo8sZb1IYfvMgYdyWECR3YM1TSiUA2JIcuVf5AwA_roveQthg3Zt_jDVlsK6CJ0ccDqzk9_eom3r6CIolgYVKAdnQwZgU6YD2Pw=w1713-h963-no" alt="Trajectory Tracking" width="240" height="180" border="10" /></a>
 
  
 ![]()
