@@ -63,7 +63,7 @@ To Do:
 - [x] Add differential drive controller and, camera sensor.
 - [x] Interface mbed with ROS using Serial Comms 
 - [x] Open Loop Control Node for mbed 
-- [ ] Implement HIL open loop control node
+- [x] Implement HIL open loop control node
 - [x] Use encoder data for PID controller - feedback!
 - [ ] Figure out VICON stuff 
 - [ ] Interface VICON with rover 
