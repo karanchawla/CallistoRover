@@ -83,3 +83,8 @@ Notes:
 ffmpeg -i out.ogv        -c:v libx264 -preset veryslow -crf 22        -c:a libmp3lame -qscale:a 2 -ac 2 -ar 44100 \ navigation.mp4
 
 ```
+- 3. Blog Post 1
+
+```
+https://karanchawla.com/2017/02/24/modeling-a-rover-in-gazebo/
+```
