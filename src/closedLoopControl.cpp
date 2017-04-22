@@ -15,16 +15,8 @@
 #define MOTORSHIELD_IN3     p29
 #define MOTORSHIELD_IN4     p30
 #define SPEEDPIN_A          p13
-#define SPEEDPIN_B          p26
-#elif defined(TARGET_KL25Z) || defined(TARGET_NUCLEO_F401RE)
-#define MOTORSHIELD_IN1     D8
-#define MOTORSHIELD_IN2     D11
-#define MOTORSHIELD_IN3     D12
-#define MOTORSHIELD_IN4     D13
-#define SPEEDPIN_A          D9
-#define SPEEDPIN_B          D10
-#else
-#error "You need to specify a pin for the sensor"
+#define SPEEDPIN_B          p9
+#define SPEEDPIN_C          p10
 #endif
 
 //Encoder and Sabertooth object intializations
@@ -36,8 +28,8 @@ Sabertooth Sb(SPEEDPIN_A,129,9600);
 
 //Geometric parameters
 
-float L=0.28;
-float R=0.03;
+float L = 0.28;
+float R = 0.03;
 
 //Target Wheel velocities <- received from diff_drive controller
 
@@ -80,7 +72,7 @@ float errorPrevR = 0;
 float controlSignal = 0;
 float targetNew = 0;
 
-int encoderRes = 1000;
+int encoderRes = 20000;
 
 //Time interval for PID controller
 
@@ -88,8 +80,8 @@ float dt = 0.01;
 
 // PID Gains
 
-float Kp = 1;
-float Ki = .01;
+float Kp = 20;
+float Ki = 0.1;
 
 //Subscribing to left wheel and right wheel velocities
 
@@ -201,6 +193,14 @@ std_msgs::Float32 rwheel_angular_vel_enc_msg;
 ros::Publisher lwheel_angular_vel_enc_pub("lwheel_angular_vel_enc", &lwheel_angular_vel_enc_msg);
 ros::Publisher rwheel_angular_vel_enc_pub("rwheel_angular_vel_enc", &rwheel_angular_vel_enc_msg);
 
+/*class NewHardware : public MbedHardware
+{
+  public:
+  NewHardware():MbedHardware(SPEEDPIN_B, SPEEDPIN_C, 57600){};
+};
+
+ros::NodeHandle_<NewHardware>  nh;*/
+
 ros::NodeHandle nh;
 
 //Driver function
@@ -223,14 +223,14 @@ int main()
 
     while(1)
     {
-        nh.spinOnce();
-        wait_ms(1);
-
         //////////////////////////////////////////////////////////////////////////////
 
         //Right Wheel 
 
         //////////////////////////////////////////////////////////////////////////////
+
+        float rwheel_angular_vel_target_new = 0;
+        float lwheel_angular_vel_target_new = 0;
 
         rwheel_angular_vel_target = tangentvel_2_angularvel(rwheel_tangent_vel_target);
         msgR.data = rwheel_tangent_vel_target;
@@ -246,14 +246,15 @@ int main()
         // PID Controller for right wheel
         errorCurrR = rwheel_angular_vel_target - rwheel_angular_vel_enc ;
         controlSignal = Kp * errorCurrR + Ki * (errorPrevR + errorCurrR * dt);
-        rwheel_angular_vel_target = controlSignal + rwheel_angular_vel_target;
+        rwheel_angular_vel_target_new = controlSignal + rwheel_angular_vel_target;
+        //ROS_INFO("%f", rwheel_angular_vel_target_new);
         errorPrevR = errorCurrR;
 
-        rwheel_angular_vel_control_msg.data = rwheel_angular_vel_target;
+        rwheel_angular_vel_control_msg.data = rwheel_angular_vel_target_new;
         rwheel_angular_vel_control_pub.publish( &rwheel_angular_vel_control_msg );
 
 
-        int rwheel_motor_cmd = angularvel_2_motorcmd(rwheel_angular_vel_target);
+        int rwheel_motor_cmd = angularvel_2_motorcmd(rwheel_angular_vel_target_new);
         rwheel_angular_vel_enc_msg.data =  rwheel_angular_vel_enc;        
         rwheel_angular_vel_enc_pub.publish(&rwheel_angular_vel_enc_msg); 
 
@@ -278,19 +279,21 @@ int main()
         // PID Controller for left wheel
         errorCurrL = lwheel_angular_vel_target - lwheel_angular_vel_enc;
         controlSignal = Kp * errorCurrL + Ki * (errorPrevL + errorCurrL*dt);
-        lwheel_angular_vel_target = controlSignal + lwheel_angular_vel_target;
+        lwheel_angular_vel_target_new = controlSignal + lwheel_angular_vel_target;
         errorPrevL = errorCurrL;
 
-        lwheel_angular_vel_control_msg.data = lwheel_angular_vel_target;
+        lwheel_angular_vel_control_msg.data = lwheel_angular_vel_target_new;
         lwheel_angular_vel_control_pub.publish( &lwheel_angular_vel_control_msg );
 
         //Compute motor command
-        int lwheel_motor_cmd = angularvel_2_motorcmd(lwheel_angular_vel_target);
+        int lwheel_motor_cmd = angularvel_2_motorcmd(lwheel_angular_vel_target_new);
 
         lwheel_angular_vel_enc_msg.data = lwheel_angular_vel_enc;
         lwheel_angular_vel_enc_pub.publish(&lwheel_angular_vel_enc_msg); 
         motorcmd_2_robot('l',lwheel_motor_cmd, Sb);
         
+        nh.spinOnce();
+
         wait_ms(500);
     }
 
