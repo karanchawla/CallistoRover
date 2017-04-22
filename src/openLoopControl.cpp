@@ -185,7 +185,8 @@ int main()
         rwheel_angular_vel_control_pub.publish( &rwheel_angular_vel_control_msg );
 
         int rwheel_motor_cmd = angularvel_2_motorcmd(rwheel_angular_vel_target);
-        rwheel_angular_vel_motor_msg.data =rwheel_motor_cmd;        rwheel_angular_vel_motor_pub.publish(&rwheel_angular_vel_motor_msg); 
+        rwheel_angular_vel_motor_msg.data =rwheel_motor_cmd;        
+        rwheel_angular_vel_motor_pub.publish(&rwheel_angular_vel_motor_msg); 
 
         motorcmd_2_robot('r', rwheel_motor_cmd, Sb);
 

@@ -203,13 +203,11 @@ static inline void controller()
     motorcmd_2_robot('l',lwheel_motor_cmd, Sb);
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 
 //Publisher definitions
 
 /////////////////////////////////////////////////////////////////////////////
-
 std_msgs::Float32 msgL;
 std_msgs::Float32 msgR;
 
@@ -229,17 +227,40 @@ std_msgs::Float32 rwheel_angular_vel_enc_msg;
 ros::Publisher lwheel_angular_vel_enc_pub("lwheel_angular_vel_enc", &lwheel_angular_vel_enc_msg);
 ros::Publisher rwheel_angular_vel_enc_pub("rwheel_angular_vel_enc", &rwheel_angular_vel_enc_msg);
 
-
-
-
 ros::NodeHandle nh;
 
-//Driver function
+static inline void publishData(void)
+{
+    msgR.data = rwheel_angular_vel_target;
+    rwheel_angular_vel_target_pub.publish(&msgR);
 
+    rwheel_angular_vel_control_msg.data = rwheel_angular_vel_target_new;
+    rwheel_angular_vel_control_pub.publish(&rwheel_angular_vel_control_msg);
+    
+    rwheel_angular_vel_enc_msg.data =  rwheel_angular_vel_enc;        
+    rwheel_angular_vel_enc_pub.publish(&rwheel_angular_vel_enc_msg);         
+    
+    msgL.data = lwheel_angular_vel_target;
+    lwheel_angular_vel_target_pub.publish( &msgL );
+
+    lwheel_angular_vel_control_msg.data = lwheel_angular_vel_target_new;
+    lwheel_angular_vel_control_pub.publish(&lwheel_angular_vel_control_msg);
+
+    lwheel_angular_vel_enc_msg.data = lwheel_angular_vel_enc;
+    lwheel_angular_vel_enc_pub.publish(&lwheel_angular_vel_enc_msg);
+
+    return;
+}
+
+//Driver function
 int main()
 {
     //Initialize the node
     nh.initNode();
+
+    while (!nh.connected()) { nh.spinOnce(); }
+
+    nh.loginfo("MBED ready.");
 
     //Pubs intializations
     nh.advertise(lwheel_angular_vel_target_pub);
@@ -258,28 +279,11 @@ int main()
     t.attach(&controller,dt);
     while(1)
     {
-
-        msgR.data = rwheel_angular_vel_target;
-        rwheel_angular_vel_target_pub.publish(&msgR);
-
-        rwheel_angular_vel_control_msg.data = rwheel_angular_vel_target_new;
-        rwheel_angular_vel_control_pub.publish(&rwheel_angular_vel_control_msg);
-        
-        rwheel_angular_vel_enc_msg.data =  rwheel_angular_vel_enc;        
-        rwheel_angular_vel_enc_pub.publish(&rwheel_angular_vel_enc_msg);         
-        
-        msgL.data = lwheel_angular_vel_target;
-        lwheel_angular_vel_target_pub.publish( &msgL );
-
-        lwheel_angular_vel_control_msg.data = lwheel_angular_vel_target_new;
-        lwheel_angular_vel_control_pub.publish(&lwheel_angular_vel_control_msg);
-
-        lwheel_angular_vel_enc_msg.data = lwheel_angular_vel_enc;
-        lwheel_angular_vel_enc_pub.publish(&lwheel_angular_vel_enc_msg); 
-        
+        publishData();
+         
         nh.spinOnce();
 
-        wait_ms(500);
+        wait_ms(1);
     }
 
 }
