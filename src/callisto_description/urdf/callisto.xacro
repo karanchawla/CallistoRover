@@ -84,6 +84,24 @@
     </inertial>
   </link>
 
+<!-- Front Left Wheel Hub --> 
+<link name='fleft_wheel_hub'>
+    <pose>${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ} 0 0 0</pose>
+    <visual name='fleft_wheel_hub_visual'>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://callisto_description/meshes/hub.stl" scale="0.5 0.5 0.5"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+    </link>
+
+  <joint name="fleft_wheel_hub_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="fleft_wheel"/>
+    <child link="fleft_wheel_hub"/>
+  </joint>
+
 
   <link name="fright_wheel">
     <!--origin xyz="-0.1 -0.13 -.05" rpy="0 1.5707 1.5707"/-->
@@ -110,6 +128,23 @@
     </inertial>
   </link>
 
+<!-- Front Right Wheel Hub --> 
+<link name='fright_wheel_hub'>
+    <pose>${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ} 0 0 0</pose>
+    <visual name='fright_wheel_hub_visual'>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://callisto_description/meshes/hub.stl" scale="0.5 0.5 0.5"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+    </link>
+
+  <joint name="fright_wheel_hub_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="fright_wheel"/>
+    <child link="fright_wheel_hub"/>
+  </joint>
 
   <joint type="continuous" name="fleft_wheel_hinge">
     <origin xyz="-0.1 0.15 -0.05" rpy="0 0 0"/>
@@ -156,6 +191,24 @@
     </inertial>
   </link>
 
+<!-- Left Wheel Hub --> 
+<link name='left_wheel_hub'>
+    <pose>${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ} 0 0 0</pose>
+    <visual name='left_wheel_hub_visual'>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://callisto_description/meshes/hub.stl" scale="0.5 0.5 0.5"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+    </link>
+
+  <joint name="left_wheel_hub_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="left_wheel"/>
+    <child link="left_wheel_hub"/>
+  </joint>
+
 
   <link name="right_wheel">
     <!--origin xyz="0.1 -0.13 -.05" rpy="0 1.5707 1.5707"/-->
@@ -181,6 +234,24 @@
         izz="1.0"/>
     </inertial>
   </link>
+
+<!-- Right Wheel Hub --> 
+<link name='right_wheel_hub'>
+    <pose>${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ} 0 0 0</pose>
+    <visual name='right_wheel_hub_visual'>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://callisto_description/meshes/hub.stl" scale="0.5 0.5 0.5"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+    </link>
+
+  <joint name="right_wheel_hub_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="right_wheel"/>
+    <child link="right_wheel_hub"/>
+  </joint>
 
 
   <joint type="continuous" name="left_wheel_hinge">
@@ -263,34 +334,5 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-
-  <joint name="imu_joint" type="fixed">
-    <axis xyz="1 0 0"/> <!-- 0 1 0 -->
-    <origin xyz="0 0 0.19"/>
-    <parent link="chassis"/>
-    <child link="imu_link"/>
-  </joint>
-
-
-<link name="imu_link">
-  <inertial>
-    <mass value="0.001"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
-  </inertial>
-  <visual>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <geometry>
-      <box size="0.001 0.001 0.001"/>
-    </geometry>
-  </visual>
-  <collision>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <geometry>
-      <box size=".001 .001 .001"/>
-    </geometry>
-  </collision>
-</link>
-
 
 </robot>
