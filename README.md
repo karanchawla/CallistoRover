@@ -67,8 +67,7 @@ To Do:
 - [x] Use encoder data for PID controller - feedback!
 - [ ] Figure out VICON stuff 
 - [ ] Interface VICON with rover 
-- [ ] Trajectory Tracking 
-Okay this is getting intimidating - rest of it later!
+- [x] Trajectory Tracking 
  
 Notes: 
  - 1. If Hokuyo laser shows weird range and behavior, the problem is probably because of the graphic drivers and add this line before launching gazebo simulation - you may add it to your ~/.bashrc file. 
