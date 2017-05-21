@@ -1,8 +1,0 @@
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/_catkin_empty_exported_target.dir
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/clean_test_results.dir
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/download_extra_data.dir
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/doxygen.dir
-/home/karan/callisto_ws/build/callisto_description/gtest/CMakeFiles/gtest.dir
-/home/karan/callisto_ws/build/callisto_description/gtest/CMakeFiles/gtest_main.dir
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/run_tests.dir
-/home/karan/callisto_ws/build/callisto_description/CMakeFiles/tests.dir

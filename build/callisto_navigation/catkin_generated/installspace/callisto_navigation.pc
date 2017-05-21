@@ -1,8 +1,0 @@
-prefix=/home/karan/callisto_ws/install
-
-Name: callisto_navigation
-Description: Description of callisto_navigation
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/karan/callisto_ws/install/lib 
-Requires: 

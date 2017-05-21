@@ -1,1 +1,0 @@
-/home/karan/callisto_ws/devel/.private/callisto_control/share/callisto_control/cmake/callisto_controlConfig-version.cmake

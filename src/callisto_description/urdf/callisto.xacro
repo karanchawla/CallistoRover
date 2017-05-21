@@ -8,8 +8,11 @@
 
   <xacro:property name="cameraSize" value="0.05"/>
   <xacro:property name="cameraMass" value="0.1"/>
+  <xacro:property name="wheelDistanceX" value="0.03"/>
+  <xacro:property name="wheelDistanceY" value="0.0"/>
+  <xacro:property name="wheelDistanceZ" value="0.0375"/>
 
-
+<!-- Robot Chassis -->
   <link name='chassis'>
     <pose>0 0 0.1 0 0 0</pose>
 
@@ -25,18 +28,37 @@
 
     <collision name='collision'>
       <geometry>
-        <box size=".4 .2 .1"/>
+        <box size=".4 .2 .1"/> 
       </geometry>
     </collision>
 
     <visual name='chassis_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-        <box size=".4 .2 .1"/>
+        <mesh filename="package://callisto_description/meshes/chassis.stl" scale="0.9 0.9 0.8"/>
       </geometry>
     </visual>
     </link>
 
+<!-- Chassis Top -->
+  <link name='chassis_top'>
+    <pose>0 0 0.035 0 0 0</pose>
+    <visual name='chassis_top_visual'>
+      <origin xyz="0 0 0.035" rpy=" 0 0 0"/>
+      <geometry>
+        <mesh filename="package://callisto_description/meshes/top.stl" scale="0.8 0.8 0.8"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+    </link>
+
+  <joint name="chassis_top_joint" type="fixed">
+    <origin xyz="0 0 0.035" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="chassis_top"/>
+  </joint>
+
+<!-- Left Wheel -->
   <link name="fleft_wheel">
     <!--origin xyz="-0.1 0.13 -0.05" rpy="0 1.5707 1.5707"/-->
     <collision name="collision">
@@ -46,9 +68,9 @@
       </geometry>
     </collision>
     <visual name="fleft_wheel_visual">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.03" length="0.02"/>
+        <mesh filename="package://callisto_description/meshes/wheel.stl" scale="0.6 0.6 0.6"/>
       </geometry>
     </visual>
     <inertial>
@@ -72,9 +94,9 @@
       </geometry>
     </collision>
     <visual name="fright_wheel_visual">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.03" length="0.02"/>
+        <mesh filename="package://callisto_description/meshes/wheel.stl" scale="0.6 0.6 0.6"/>
       </geometry>
     </visual>
     <inertial>
@@ -118,9 +140,9 @@
       </geometry>
     </collision>
     <visual name="left_wheel_visual">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.03" length="0.02"/>
+        <mesh filename="package://callisto_description/meshes/wheel.stl" scale="0.6 0.6 0.6"/>
       </geometry>
     </visual>
     <inertial>
@@ -144,9 +166,9 @@
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
-      <origin xyz="0 0 0" rpy="0 1.5707 1.5707"/>
+      <origin xyz="${wheelDistanceX} ${wheelDistanceY} ${wheelDistanceZ}" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.03" length="0.02"/>
+        <mesh filename="package://callisto_description/meshes/wheel.stl" scale="0.6 0.6 0.6"/>
       </geometry>
     </visual>
     <inertial>
@@ -241,6 +263,34 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
+
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="1 0 0"/> <!-- 0 1 0 -->
+    <origin xyz="0 0 0.19"/>
+    <parent link="chassis"/>
+    <child link="imu_link"/>
+  </joint>
+
+
+<link name="imu_link">
+  <inertial>
+    <mass value="0.001"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size="0.001 0.001 0.001"/>
+    </geometry>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size=".001 .001 .001"/>
+    </geometry>
+  </collision>
+</link>
 
 
 </robot>

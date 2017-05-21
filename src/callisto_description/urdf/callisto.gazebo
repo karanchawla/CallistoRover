@@ -20,6 +20,27 @@
     </plugin>
   </gazebo>
 
+<gazebo reference="chassis">
+  <material>Gazebo/Red</material>
+</gazebo>
+
+<gazebo reference="left_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="right_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="fleft_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="fright_wheel">
+  <material>Gazebo/Black</material>
+</gazebo>
+
+
    <gazebo reference="camera">
     <material>Gazebo/Green</material>
     <sensor type="camera" name="camera1">
@@ -89,5 +110,6 @@
       </plugin>
     </sensor>
 </gazebo>
+
 
 </robot>

@@ -1,1 +1,0 @@
-/home/karan/callisto_ws/devel/.private/callisto_description/lib/pkgconfig/callisto_description.pc
