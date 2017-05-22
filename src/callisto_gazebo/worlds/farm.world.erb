@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<sdf version='1.5'>
+  <world name='default'>
+    <light name='sundir' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>1.0 0.95 0.8 1</diffuse>
+      <specular>0.7 0.7 0.7 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.3 0.4 -1.0</direction>
+    </light>
+
+    <include>
+      <uri>model://vrc_driving_terrain</uri>
+    </include>
+
+    <% n=0.3
+    for j in (-2..-1).step(n) %>
+    <% n=0.3
+    for i in (0..10).step(n) %>
+      <model name="row_<%=i%>">
+      <pose><%=i%> <%=j%> 0 0 0 0</pose>
+      <static>1</static>
+      <link name='body'>
+      <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://farm/model.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction> 
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://farm/model.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+        </visual>
+      </link>
+    </model>
+  <% end %>
+  <% end %>
+
+  <% n=0.3
+    for j in (1..2).step(n) %>
+    <% n=0.3
+    for i in (0..10).step(n) %>
+      <model name="row_<%=i%>">
+      <pose><%=i%> <%=j%> 0 0 0 0</pose>
+      <static>1</static>
+      <link name='body'>
+      <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://farm/model.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction> 
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://farm/model.dae</uri>        
+            </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+        </material>
+        </visual>
+      </link>
+    </model>
+  <% end %>
+  <% end %>
+  
+    
+  </world>
+</sdf>
