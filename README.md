@@ -40,8 +40,10 @@ Directory Structure:
        - CMakeLists.txt
        - package.xml
        
-Working of the LIDAR:
-![](/images/laser.png)
+Rover with Lidar and Generic Camera in a Corn Field(Gazebo):
+![](images/farm1.jpg)
+
+
 
 Videos:
 
