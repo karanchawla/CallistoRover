@@ -60,7 +60,7 @@ To Do:
 - [x] Implement HIL open loop control node
 - [x] Use encoder data for PID controller - feedback!
 - [x] Trajectory Tracking 
-- [] Add Skid steering Control 
+- [ ] Add Skid steering Control 
  
 Notes: 
  - 1. If Hokuyo laser shows weird range and behavior, the problem is probably because of the graphic drivers and add this line before launching gazebo simulation - you may add it to your ~/.bashrc file. 
