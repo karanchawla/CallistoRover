@@ -1,0 +1,8 @@
+prefix=/home/karan/callistorover/devel
+
+Name: callisto_control
+Description: Description of callisto_control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callistorover/devel/lib 
+Requires: 

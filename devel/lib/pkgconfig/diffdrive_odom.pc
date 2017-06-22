@@ -1,0 +1,8 @@
+prefix=/home/karan/callistorover/devel
+
+Name: diffdrive_odom
+Description: Description of diffdrive_odom
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callistorover/devel/lib 
+Requires: 

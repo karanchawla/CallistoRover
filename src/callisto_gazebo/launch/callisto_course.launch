@@ -7,10 +7,16 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
+  <arg name="x" default="4.7"/>
+  <arg name="y" default="-16"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="1.57"/>
   
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <!--arg name="world_name" value="$(find callisto_gazebo)/worlds/callisto.world"/-->
-    <arg name="world_name" value="$(find callisto_gazebo)/worlds/turtlebot_playground.world"/>
+    <arg name="world_name" value="$(find callisto_gazebo)/worlds/course.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -22,6 +28,8 @@
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find callisto_description)/urdf/callisto.xacro'"/>
 
   <node name="callisto_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-   args="-urdf -param robot_description -model callisto" />
+   args="-urdf -param robot_description -model callisto
+	-x $(arg x) -y $(arg y) -z $(arg z)
+   	-R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
 
 </launch>

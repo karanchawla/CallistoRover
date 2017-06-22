@@ -1,0 +1,8 @@
+prefix=/home/karan/callistorover/devel
+
+Name: callisto_navigation
+Description: Description of callisto_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callistorover/devel/lib 
+Requires: 

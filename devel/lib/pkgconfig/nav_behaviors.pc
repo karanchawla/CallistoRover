@@ -1,0 +1,8 @@
+prefix=/home/karan/callistorover/devel
+
+Name: nav_behaviors
+Description: Description of nav_behaviors
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karan/callistorover/devel/lib 
+Requires: 
