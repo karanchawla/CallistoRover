@@ -23,10 +23,10 @@ class OdomPublisher:
 
     self.odom_pub = rospy.Publisher('odom', Odometry, queue_size=10)
 
-    self.L = rospy.get_param('~robot_wheel_separation_distance', 0.28) 
+    self.L = rospy.get_param('~robot_wheel_separation_distance', 0.14) 
     self.R = rospy.get_param('~robot_wheel_radius', 0.03)
     self.rate = rospy.get_param('~rate', 50)
-    self.N = rospy.get_param('~robot_wheel_ticks', 624)
+    self.N = rospy.get_param('~robot_wheel_ticks', 20)
     self.frame_id = rospy.get_param('~frame_id','/odom')
     self.child_frame_id = rospy.get_param('~child_frame_id','/base_link')
 
